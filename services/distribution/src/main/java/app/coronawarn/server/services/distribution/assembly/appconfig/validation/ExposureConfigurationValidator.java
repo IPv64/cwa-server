@@ -87,8 +87,7 @@ public class ExposureConfigurationValidator extends ConfigurationValidator {
         this.errors.add(new RiskLevelValidationError(parameter, propertyDescriptor.getName()));
       }
     } catch (IllegalAccessException | InvocationTargetException e) {
-      throw new ValidationExecutionException(
-          "Unable to read property " + propertyDescriptor.getName(), e);
+      throw new ValidationExecutionException("Unable to read property " + propertyDescriptor.getName(), e);
     }
   }
 
@@ -113,7 +112,6 @@ public class ExposureConfigurationValidator extends ConfigurationValidator {
 
     return bd.scale() <= ParameterSpec.WEIGHT_MAX_DECIMALS;
   }
-
 
   private boolean isOutOfRange(double min, double max, double x) {
     return x < min || x > max;
